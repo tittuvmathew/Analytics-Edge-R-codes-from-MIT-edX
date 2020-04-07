@@ -1,0 +1,16 @@
+Detective = read.csv("mvtWeek1.csv")
+str(Detective)
+max(Detective$ID)
+min(Detective$Beat)
+ArrestMade = subset(Detective,Detective$Arrest == "TRUE")
+nrow(ArrestMade)
+nrow(subset(Detective,Detective$LocationDescription=="ALLEY"))
+Detective$Date
+DateConvert = as.Date(strptime(Detective$Date, "%m/%d/%y %H:%M"))
+summary(DateConvert)
+Detective$Month = months(DateConvert)
+Detective$Weekday = weekdays(DateConvert)
+Detective$Date = DateConvert
+min(table(Detective$Month))
+max(table(Detective$Weekday))
+table(Detective$Month,Detective$Arrest)
